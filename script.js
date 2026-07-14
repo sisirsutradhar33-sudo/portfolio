@@ -59,62 +59,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Client-side Form Validation and Submission Handling
-    const contactForm = document.getElementById('contact-form');
-    const formFeedback = document.getElementById('form-feedback');
+    // 4. Contact Form Submission
+const contactForm = document.getElementById('contact-form');
+const formFeedback = document.getElementById('form-feedback');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            event.preventDefault();
+function displayFeedback(text, type) {
+    if (!formFeedback) return;
 
-            const nameInput = document.getElementById('name').value.trim();
-            const emailInput = document.getElementById('email').value.trim();
-            const subjectInput = document.getElementById('subject').value.trim();
-            const messageInput = document.getElementById('message').value.trim();
+    formFeedback.innerText = text;
+    formFeedback.className = 'form-feedback';
 
-            if (!nameInput || !emailInput || !subjectInput || !messageInput) {
-                displayFeedback('Please fill out all fields in the contact form.', 'error');
-                return;
-            }
-
-            // Simulating API or email delivery service call
-            displayFeedback('Sending message...', '');
-
-fetch('https://script.google.com/macros/s/AKfycbx6qNO8uUAuQqFtKuOVSbLWDt8g3RtlZhFUKHKhUD1vqbgxT9FQVNjGPDVbl_Wzu0Y/exec', {
-    method: 'POST',
-    body: JSON.stringify({
-        name: nameInput,
-        email: emailInput,
-        subject: subjectInput,
-        message: messageInput
-    })
-})
-.then(response => response.json())
-.then(data => {
-    displayFeedback(
-        'Thank you for reaching out. Your message was successfully received.',
-        'success'
-    );
-    contactForm.reset();
-})
-.catch(error => {
-    displayFeedback(
-        'Error sending message. Please try again.',
-        'error'
-    );
-});
-
-    function displayFeedback(text, type) {
-        if (!formFeedback) return;
-        formFeedback.innerText = text;
-        formFeedback.className = 'form-feedback'; // Reset classes
-        
-        if (type === 'success') {
-            formFeedback.classList.add('success');
-        } else if (type === 'error') {
-            formFeedback.classList.add('error');
-        } else {
-            formFeedback.classList.remove('hide');
-        }
+    if (type === 'success') {
+        formFeedback.classList.add('success');
+    } else if (type === 'error') {
+        formFeedback.classList.add('error');
     }
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nameInput = document.getElementById('name').value.trim();
+        const emailInput = document.getElementById('email').value.trim();
+        const subjectInput = document.getElementById('subject').value.trim();
+        const messageInput = document.getElementById('message').value.trim();
+
+        if (!nameInput || !emailInput || !subjectInput || !messageInput) {
+            displayFeedback('Please fill out all fields in the contact form.', 'error');
+            return;
+        }
+
+        displayFeedback('Sending message...', '');
+
+        fetch('https://script.google.com/macros/s/AKfycbx6qNO8uUAuQqFtKuOVSbLWDt8g3RtlZhFUKHKhUD1vqbgxT9FQVNjGPDVbl_Wzu0Y/exec', {
+            method: 'POST',
+            body: JSON.stringify({
+                name: nameInput,
+                email: emailInput,
+                subject: subjectInput,
+                message: messageInput
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            displayFeedback(
+                'Thank you for reaching out. Your message was successfully received.',
+                'success'
+            );
+            contactForm.reset();
+        })
+        .catch(error => {
+            console.error(error);
+
+            displayFeedback(
+                'Error sending message. Please try again.',
+                'error'
+            );
+        });
+    });
+}
 });
