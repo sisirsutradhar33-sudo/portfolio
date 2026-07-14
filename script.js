@@ -79,13 +79,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Simulating API or email delivery service call
             displayFeedback('Sending message...', '');
-            
-            setTimeout(() => {
-                displayFeedback('Thank you for reaching out. Your message was successfully received and I will contact you shortly.', 'success');
-                contactForm.reset();
-            }, 1200);
-        });
-    }
+
+fetch('https://script.google.com/macros/s/AKfycbx6qNO8uUAuQqFtKuOVSbLWDt8g3RtlZhFUKHKhUD1vqbgxT9FQVNjGPDVbl_Wzu0Y/exec', {
+    method: 'POST',
+    body: JSON.stringify({
+        name: nameInput,
+        email: emailInput,
+        subject: subjectInput,
+        message: messageInput
+    })
+})
+.then(response => response.json())
+.then(data => {
+    displayFeedback(
+        'Thank you for reaching out. Your message was successfully received.',
+        'success'
+    );
+    contactForm.reset();
+})
+.catch(error => {
+    displayFeedback(
+        'Error sending message. Please try again.',
+        'error'
+    );
+});
 
     function displayFeedback(text, type) {
         if (!formFeedback) return;
