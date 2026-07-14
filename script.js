@@ -92,7 +92,7 @@ if (contactForm) {
 
         displayFeedback('Sending message...', '');
 
-        fetch('https://script.google.com/macros/s/AKfycbx6qNO8uUAuQqFtKuOVSbLWDt8g3RtlZhFUKHKhUD1vqbgxT9FQVNjGPDVbl_Wzu0Y/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbwFN6C2udViy6I4n0knMIMOfxxBLVlRt0df7sIEO0uuhV5bimYLuWQHDPhD8DwDQkcl/exec', {
             method: 'POST',
             body: JSON.stringify({
                 name: nameInput,
