@@ -7,7 +7,8 @@
     --text-secondary: #94a3b8;   /* Cool muted gray for subtexts */
     
     --primary: #10b981;          /* Green branding tint */
-    --hover-color: #3b82f6;      /* Blue hovering state */
+    --hover-color: #34d399;      /* Brighter emerald/mint for standard hover */
+    --hover-dark: #059669;       /* Deeper green for button background hover */
     
     --transition-fast: 0.2s ease;
     --transition-mid: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,8 +85,9 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: var(--hover-color);
+    background-color: var(--hover-dark);
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15); /* Adds a subtle green glow */
 }
 
 .btn-secondary {
@@ -98,6 +100,7 @@ img {
     border-color: var(--hover-color);
     color: var(--hover-color);
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(52, 211, 153, 0.05);
 }
 
 .btn-full {
@@ -375,6 +378,7 @@ section {
 .skill-card:hover {
     border-color: var(--hover-color);
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.05);
 }
 
 .skill-icon {
@@ -606,6 +610,7 @@ section {
 .portfolio-card:hover {
     border-color: var(--hover-color);
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.05);
 }
 
 .project-category {
@@ -1022,6 +1027,7 @@ section {
     border-radius: 12px;
     margin-top: 2rem;
     text-align: center;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.03);
 }
 
 .case-cta h3 {
@@ -1088,6 +1094,10 @@ section {
         transition: 0.3s ease;
         border-top: 1px solid var(--border-color);
         box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        
+        /* FIX: Enable vertical scroll for short/landscape screens */
+        overflow-y: auto; 
+        padding-bottom: 2rem; /* Add padding at bottom of menu so last link isn't cut off */
     }
 
     .nav-menu.active {
