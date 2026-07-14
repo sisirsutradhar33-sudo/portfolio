@@ -389,13 +389,17 @@
                 
                 <!-- Contact Form Panel -->
                 <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form">
-                        <!-- Honeypot Spam Protection Field (Invisible to human eyes) -->
-                        <div class="form-group-hp" style="display:none !important; visibility:hidden !important;" aria-hidden="true">
-                            <label for="website_url">Leave this field blank</label>
-                            <input type="text" id="website_url" name="website_url" autocomplete="off">
-                        </div>
+                    <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="fd456ab2-9467-48f1-b31d-721f8286e921">
                         
+                        <!-- Web3Forms Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        
+                        <!-- Optional: Auto-reply feature -->
+                        <input type="hidden" name="subject" value="New Lead from Sisir Portfolio">
+                        <input type="hidden" name="from_name" value="Sisir Portfolio">
+
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -403,10 +407,6 @@
                         <div class="form-group">
                             <label for="email">Your Email</label>
                             <input type="email" id="email" name="email" required placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="e.g. Freelance inquiry, collaboration">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
