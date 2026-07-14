@@ -32,6 +32,8 @@
                     <li><a href="index.html#hero" class="nav-link active">Home</a></li>
                     <li><a href="index.html#about" class="nav-link">About</a></li>
                     <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+
                     <li><a href="index.html#experience" class="nav-link">Experience</a></li>
                     <li><a href="index.html#portfolio" class="nav-link">My Work</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -143,6 +145,53 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">How I Help <span class="text-primary">Businesses Grow</span></h2>
+            <p class="section-subtitle">Structured systems and campaigns designed to scale reach, automate data workflows, and maximize digital ad revenue.</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-tag">Core Service</div>
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Digital Distribution & Media Pipelines</h3>
+                    <p>I build structured publishing and multi-channel content delivery networks that maximize organic page views, keep formatting consistent across platforms, and direct social traffic straight into monetized domains.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check text-primary"></i> Multi-platform social workflows</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> Real-time content reformatting</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> Yield-optimized traffic routing</li>
+                    </ul>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-tag">Performance</div>
+                    <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Performance Marketing & Funnels</h3>
+                    <p>I set up and manage lead-gen and conversion campaigns on Google Ads and Meta Ads. I design the flow from initial click to landing page optimization, focusing on lowering CPA and boosting tracking accuracy.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check text-primary"></i> Search & Social Campaign Setup</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> Landing Page Layout Strategy</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> GA4 Event & Lead Tracking</li>
+                    </ul>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-tag">Operations</div>
+                    <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Data Operations & AI Workflows</h3>
+                    <p>I replace repetitive marketing and administrative work with automated structures. I build custom database schemas, sync audience pipelines with HubSpot CRM, and optimize workflows with targeted AI tool integrations.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check text-primary"></i> CRM Data Syncing & Funnels</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> Automated Custom Reporting</li>
+                        <li><i class="fa-solid fa-check text-primary"></i> Workflow Time-Savings Audit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience" class="experience-section">
         <div class="container">
@@ -242,8 +291,11 @@
                 <!-- Project 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <!-- Updated image path -->
-                        <img src="assets/sexpres.jpg.jpg" alt="Illustration of a digital newsroom and analytics dashboard">
+                        <!-- Custom Gradient Cover for Siliguri Express (Can replace with <img src="assets/sexpres.jpg"> later) -->
+                        <div class="project-gradient gradient-distribution">
+                            <i class="fa-solid fa-newspaper placeholder-icon"></i>
+                            <span class="placeholder-caption">Case Study #01</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="project-category">Publishing & Monetization</span>
@@ -256,41 +308,49 @@
                         <a href="case-study.html" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Strategy Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Project 2 -->
+                
+                <!-- Project 2 (Triggers Modal 1) -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <!-- Updated image path -->
-                        <img src="assets/automation.jpg" alt="Illustration of an automation dashboard for records and analytics">
+                        <!-- Custom Gradient Cover for inskills Automation -->
+                        <div class="project-gradient gradient-automation">
+                            <i class="fa-solid fa-microchip placeholder-icon"></i>
+                            <span class="placeholder-caption">Case Study #02</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="project-category">Automation & Analytics</span>
                         <h3>inskills Record Automation System</h3>
                         <p class="project-desc">Standardized and automated the academic reporting workflows for 400+ active students at Inspiria Knowledge Campus using AI automation structures.</p>
-                        <div class="outcome-badge">
+                        <div class="outcome-badge" style="margin-bottom: 1.5rem;">
                             <span class="outcome-label">Result:</span>
                             <span class="outcome-value">95% Reduction in Reporting Time via Automation</span>
-                            </div>
+                        </div>
+                        <button class="btn btn-secondary open-modal-btn" data-target="modal-automation" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Strategy Details <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
                     </div>
                 </div>
-                <!-- Project 3 -->
+                
+                <!-- Project 3 (Triggers Modal 2) -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <!-- Updated image path -->
-                        <img src="assets/campaign.jpg" alt="Illustration of a campaign framework for Google and Meta advertising">
+                        <!-- Custom Gradient Cover for Campaign Framework -->
+                        <div class="project-gradient gradient-campaign">
+                            <i class="fa-solid fa-chart-column placeholder-icon"></i>
+                            <span class="placeholder-caption">Case Study #03</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="project-category">Performance Marketing</span>
                         <h3>Google & Meta Campaign Framework</h3>
                         <p class="project-desc">Created search campaign templates targeting localized customer segments, utilizing analytical search rules and precise GA4 performance event tracking.</p>
-                        <div class="outcome-badge">
+                        <div class="outcome-badge" style="margin-bottom: 1.5rem;">
                             <span class="outcome-label">Performance Metric:</span>
                             <span class="outcome-value">Structured for a Target CPA Reduction of ~25%</span>
                         </div>
+                        <button class="btn btn-secondary open-modal-btn" data-target="modal-campaign" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Strategy Details <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -374,6 +434,78 @@
             <p>&copy; 2026 Sisir Sutradhar. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ================================================================= -->
+    <!-- PORTFOLIO INTERACTIVE MODALS (POP-UPS) -->
+    <!-- ================================================================= -->
+
+    <!-- Modal 1: inskills Automation -->
+    <div id="modal-automation" class="modal-overlay" aria-hidden="true">
+        <div class="modal-window">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <span class="project-category">Automation & Analytics</span>
+            <h2 class="modal-title">inskills Record Automation System</h2>
+            <p class="modal-subtitle">Eliminating manual data compiling to coordinate logs for 400+ active academic profiles.</p>
+            
+            <div class="modal-grid">
+                <div class="modal-main-content">
+                    <h3>The Challenge</h3>
+                    <p>Managing raw records for 400+ students manually resulted in visual tracking delays and clerical inconsistencies. Composing academic data updates swallowed up valuable administrative hours weekly.</p>
+                    
+                    <h3>The Solution</h3>
+                    <p>We built a template-based automated record system. By using programmatic structures and cloud integration, raw datasets are organized, auto-validated, and synced automatically without manual copy-pasting.</p>
+                </div>
+                
+                <div class="modal-sidebar">
+                    <div class="modal-spec-card">
+                        <h4>Impact Highlights</h4>
+                        <div class="spec-metric">95%</div>
+                        <p>Weekly processing hours eliminated</p>
+                        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+                        <ul class="spec-list">
+                            <li><strong>Scope:</strong> 400+ Profiles</li>
+                            <li><strong>System:</strong> AI & Sheets Auto-Sync</li>
+                            <li><strong>Error Rate:</strong> ~0%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Campaign Framework -->
+    <div id="modal-campaign" class="modal-overlay" aria-hidden="true">
+        <div class="modal-window">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <span class="project-category">Performance Marketing</span>
+            <h2 class="modal-title">Google & Meta Campaign Framework</h2>
+            <p class="modal-subtitle">Structuring precise geographical and search setups with advanced GA4 analytics tags.</p>
+            
+            <div class="modal-grid">
+                <div class="modal-main-content">
+                    <h3>The Challenge</h3>
+                    <p>Local campaigns often leak spend by targeting overly broad regions and failing to isolate high-intent keywords. Without exact event tracking, measuring concrete cost-per-acquisition (CPA) is impossible.</p>
+                    
+                    <h3>The Solution</h3>
+                    <p>We designed a geographic search network template with granular targeting filters. The setup is configured with native GA4 events mapping lead completions, allowing campaigns to isolate and scale only profitable demographics.</p>
+                </div>
+                
+                <div class="modal-sidebar">
+                    <div class="modal-spec-card">
+                        <h4>Project Highlights</h4>
+                        <div class="spec-metric">~25%</div>
+                        <p>Projected savings in wasted ad spend</p>
+                        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+                        <ul class="spec-list">
+                            <li><strong>Ad Networks:</strong> Google & Meta</li>
+                            <li><strong>Tracking:</strong> GA4 Leads & Events</li>
+                            <li><strong>CRM Link:</strong> HubSpot Auto-Feed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
