@@ -103,9 +103,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailVal = document.getElementById('email').value.trim();
             const subjectVal = document.getElementById('subject').value.trim();
             const messageVal = document.getElementById('message').value.trim();
+            
+            // Honeypot check: If the hidden field has been filled, it is a spam bot
+            const honeypotVal = document.getElementById('website_url').value;
+            if (honeypotVal) {
+                // Fake a successful submission so the bot thinks it worked, but exit quietly
+                displayFeedback('Thank you for reaching out! Your message has been received successfully.', 'success');
+                contactForm.reset();
+                return;
+            }
 
+            // General empty-field validation
             if (!nameVal || !emailVal || !subjectVal || !messageVal) {
                 displayFeedback('Please fill out all fields in the contact form.', 'error');
+                return;
+            }
+
+            // Technical validation: Check for basic valid email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailVal)) {
+                displayFeedback('Please enter a valid email address.', 'error');
                 return;
             }
 
