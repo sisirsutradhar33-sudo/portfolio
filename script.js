@@ -201,4 +201,60 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         });
     }
+    // =================================================================
+    // 5. Interactive Portfolio Modals (Pop-ups)
+    // =================================================================
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const modalOverlays = document.querySelectorAll('.modal-overlay');
+    const closeModalBtns = document.querySelectorAll('.modal-close');
+
+    // Open Modal Function
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            const targetModal = document.getElementById(targetId);
+            if (targetModal) {
+                targetModal.classList.add('active');
+                document.body.classList.add('modal-open');
+                targetModal.setAttribute('aria-hidden', 'false');
+            }
+        });
+    });
+
+    // Close Modal via Close ('X') Button
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const activeModal = btn.closest('.modal-overlay');
+            if (activeModal) {
+                closeModal(activeModal);
+            }
+        });
+    });
+
+    // Close Modal by clicking outside the modal window (on the dark blurred background)
+    modalOverlays.forEach(overlay => {
+        overlay.addEventListener('click', (event) => {
+            // Only close if the click was directly on the background, not inside the modal content box
+            if (event.target === overlay) {
+                closeModal(overlay);
+            }
+        });
+    });
+
+    // Close Modal by pressing the ESC (Escape) key on your keyboard
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            const activeModal = document.querySelector('.modal-overlay.active');
+            if (activeModal) {
+                closeModal(activeModal);
+            }
+        }
+    });
+
+    // Helper function to clean up classes when modal closes
+    function closeModal(modalElement) {
+        modalElement.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        modalElement.setAttribute('aria-hidden', 'true');
+    }
 });
