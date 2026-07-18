@@ -1705,3 +1705,126 @@ input[name="botcheck"] {
         padding-bottom: 70px; 
     }
 }
+
+/* ================================================================= */
+/* PHASE 4: MAJOR VISUAL OVERHAUL (Glassmorphism, Glows, Animation)  */
+/* ================================================================= */
+
+/* 1. Animated Hero Title (Makes "Measurable Revenue" shimmer) */
+.hero-title .text-primary {
+    background: linear-gradient(90deg, #34d399, #10b981, #6ee7b7, #34d399);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(16, 185, 129, 0.3));
+    animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. Glassmorphism Cards (Frosted glass effect) */
+.skill-card, 
+.service-card, 
+.portfolio-card, 
+.timeline-content, 
+.edu-card, 
+.contact-form {
+    background: rgba(19, 27, 46, 0.6); /* Transparent dark blue */
+    backdrop-filter: blur(12px); /* The frosted glass blur */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle light border for depth */
+}
+
+/* 3. Neon-Glow Hover Effects (Cards power up on hover) */
+.skill-card:hover,
+.service-card:hover,
+.portfolio-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-8px); /* Slightly higher lift */
+    box-shadow: 
+        0 10px 30px rgba(16, 185, 129, 0.1),
+        0 0 40px rgba(16, 185, 129, 0.05); /* Dual-layer glow */
+}
+
+/* Specific glow for the About image */
+.about-image-card {
+    background: rgba(19, 27, 46, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-image-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+}
+
+/* 4. Enhance Background Orbs (Bigger, more visible for depth) */
+.glow-orb {
+    width: 800px; /* Increased from 500px */
+    height: 800px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%);
+    animation: float-orb 25s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%);
+    animation-duration: 30s;
+}
+
+/* 5. Premium Button Upgrades */
+.btn-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Gradient button */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border-width: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 6. Premium Modal Glass Effect */
+.modal-window {
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-spec-card {
+    background: rgba(11, 15, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 7. Scrollbar Enhancement for Desktop */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+    border: 2px solid var(--bg-main);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* 8. Service Tag Glow */
+.service-tag {
+    background-color: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+}
