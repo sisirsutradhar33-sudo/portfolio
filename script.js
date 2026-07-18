@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            // This line STOPS the browser from redirecting to the Web3Forms page
             e.preventDefault();
             
             const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(async (response) => {
                 let json = await response.json();
                 if (response.status == 200) {
+                    // Success! Show message and clear the form
                     displayFeedback('Thank you! Your message has been sent directly to my inbox.', 'success');
                     contactForm.reset(); 
                 } else {
@@ -115,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // 4B. Clear form if user ever clicks the "Back" button to return to this page
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
                 contactForm.reset();
@@ -193,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); // Trigger once
                 }
             });
         }, {
@@ -204,33 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => {
             revealObserver.observe(el);
         });
-    }
-
-    // 8. Mobile Sticky CTA Visibility (Moved from inline HTML)
-    const mobileCta = document.getElementById('mobile-sticky-cta');
-    const heroSection = document.getElementById('hero');
-    
-    function handleMobileCta() {
-        if (!mobileCta || !heroSection) return;
-        
-        if (window.innerWidth <= 768) {
-            mobileCta.style.display = 'flex';
-            if (window.scrollY > heroSection.offsetHeight) {
-                mobileCta.style.opacity = '1';
-                mobileCta.style.pointerEvents = 'auto';
-            } else {
-                mobileCta.style.opacity = '0';
-                mobileCta.style.pointerEvents = 'none';
-            }
-        } else {
-            mobileCta.style.display = 'none';
-        }
-    }
-    
-    if (mobileCta && heroSection) {
-        window.addEventListener('scroll', handleMobileCta);
-        window.addEventListener('resize', handleMobileCta);
-        handleMobileCta(); // Run once on load
     }
 
 }); // End of DOMContentLoaded
