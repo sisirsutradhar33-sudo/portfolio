@@ -1481,3 +1481,152 @@ body.modal-open {
         margin-bottom: 1.5rem;
     }
 }
+
+/* ================================================================= */
+/* PREMIUM DESIGN AESTHETICS & INTERACTION ADDITIONS (PHASE 3) */
+/* ================================================================= */
+
+/* --- Scroll Progress Bar --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3.5px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--hover-color) 100%);
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 1px 10px rgba(16, 185, 129, 0.4);
+}
+
+/* --- Ambient Glowing Orbs --- */
+.glow-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(59, 130, 246, 0.03) 50%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+    animation: float-orb 20s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+    top: 5%;
+    left: -150px;
+}
+
+.orb-2 {
+    bottom: 10%;
+    right: -200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(16, 185, 129, 0.03) 50%, transparent 70%);
+    animation-duration: 25s;
+    animation-delay: -5s;
+}
+
+@keyframes float-orb {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translate(30px, 50px) scale(1.08) rotate(90deg);
+    }
+    100% {
+        transform: translate(-20px, 20px) scale(0.95) rotate(180deg);
+    }
+}
+
+/* Ensure sections are relative so orbs don't overflow layout limits */
+.hero-section, .services-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Scroll-driven Reveals --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cascade effect for grids (delaying animations slightly) */
+.skills-grid .reveal:nth-child(2),
+.services-grid .reveal:nth-child(2),
+.portfolio-grid .reveal:nth-child(2) {
+    transition-delay: 0.15s;
+}
+.skills-grid .reveal:nth-child(3),
+.services-grid .reveal:nth-child(3),
+.portfolio-grid .reveal:nth-child(3) {
+    transition-delay: 0.3s;
+}
+.skills-grid .reveal:nth-child(4) { transition-delay: 0.1s; }
+.skills-grid .reveal:nth-child(5) { transition-delay: 0.2s; }
+.skills-grid .reveal:nth-child(6) { transition-delay: 0.3s; }
+
+/* --- Portfolio Image Enhancements --- */
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    background-color: #0b0f17;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover .portfolio-img {
+    transform: scale(1.06);
+}
+
+/* --- Portfolio Card Actions Layout --- */
+.portfolio-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.portfolio-actions .btn {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* --- Header Text Color Gradient Glow --- */
+.hero-title .text-primary {
+    background: linear-gradient(135deg, var(--hover-color) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.2));
+}
+
+/* Adjust modal content scrollbar */
+.modal-window::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-window::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+.modal-window::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+.modal-window::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}

@@ -174,4 +174,39 @@ document.addEventListener('DOMContentLoaded', () => {
         modalElement.setAttribute('aria-hidden', 'true');
     }
 
+    // 6. Scroll Progress Bar Calculation
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight > 0) {
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollProgress.style.width = scrollPercent + '%';
+            } else {
+                scrollProgress.style.width = '0%';
+            }
+        });
+    }
+
+    // 7. Scroll-driven Viewport Entry Observer (Scroll Reveal)
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Trigger once
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    }
+
 }); // End of DOMContentLoaded
